@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ToyRobot_csharp
+namespace ToyRobot
 {
     class Program
     {
