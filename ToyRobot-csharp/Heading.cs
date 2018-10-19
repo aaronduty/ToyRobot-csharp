@@ -1,4 +1,4 @@
 ﻿namespace ToyRobot
 {
-    public enum Heading { North, East, South, West}
+    public enum Heading { NORTH, EAST, SOUTH, WEST}
 }
