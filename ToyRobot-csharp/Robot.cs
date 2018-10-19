@@ -11,7 +11,7 @@ namespace ToyRobot
             Place(table, x, y, f);
         }
 
-        public ITable table { get; }
+        public ITable Table { get; private set; }
 
         public int X { get; set; }
         public int Y { get; set; }
