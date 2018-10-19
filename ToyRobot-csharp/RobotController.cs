@@ -6,9 +6,14 @@ namespace ToyRobot
 {
     public class RobotController
     {
+        public IRobot Robot { get; set; }
 
+        public RobotController(IRobot robot)
+        {
+            Robot = robot;
+        }
 
-        public void addCommand(String command)
+        public String ExecuteCommand(String command)
         {
             throw new NotImplementedException();
         }
