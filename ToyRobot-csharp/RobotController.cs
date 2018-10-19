@@ -8,43 +8,52 @@ namespace ToyRobot
 {
     public class RobotController
     {
-        private IRobot robot;
+        public IRobot Robot { get; set; }
+
+        private Regex rx = new Regex(@"^(?<command>\w+)( (?<X>\d+),(?<Y>\d+),(?<F>\w+))?$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         public RobotController(IRobot robot)
         {
-            this.robot = robot;
+            Robot = robot;
         }
 
-        public void Execute(String command)
+        public String ExecuteCommand(String command)
         {
-            var rx = new Regex(@"^(?<command>\w+)( (?<X>\d+),(?<Y>\d+),(?<F>\w+))?$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
             MatchCollection matches = rx.Matches(command);
             GroupCollection groups = matches.Cast<Match>().First().Groups;
             String keyword = groups["command"].Value;
             int X = int.TryParse(groups["X"].Value, out X) ? X : 0;
             int Y = int.TryParse(groups["Y"].Value, out Y) ? Y : 0;
-            Heading F = Enum.Parse<Heading>(groups["F"].Value);
+            String F = groups["F"].Value;
 
+            String output = "";
             switch (keyword.ToLower())
             {
                 case "place":
-                    robot.Place(X, Y, F);
+                    Robot.Place(X, Y, Enum.Parse<Heading>(F));
+                    output = "Robot Placed";
                     break;
                 case "left":
-                    robot.Left();
+                    Robot.Left();
+                    output = "Robot Turn Left";
                     break;
                 case "right":
-                    robot.Right();
+                    Robot.Right();
+                    output = "Robot Turn Right";
                     break;
                 case "move":
-                    robot.Move();
+                    Robot.Move();
+                    output = "Robot Move";
                     break;
                 case "report":
-                    Console.WriteLine(robot.Report());
+                    output = Robot.Report();
                     break;
                 default:
+                    output = "Unrecognized Command";
                     break;
             }
+
+            return output;
         }
     }
 }
