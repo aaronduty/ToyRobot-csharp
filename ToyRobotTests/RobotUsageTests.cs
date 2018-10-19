@@ -15,13 +15,13 @@ namespace ToyRobotTests
 {
     public class RobotUsageTests
     {
-        RobotController robotController = new RobotController(new Robot(new Table(5, 5), 0, 0, Heading.North));
+        RobotController robotController = new RobotController(new Robot(new Table(5, 5), 0, 0, Heading.NORTH));
 
         [Fact]
         public void PuzzleTest1()
         {
             var commands = new String[] { "PLACE 0,0,NORTH", "MOVE", "REPORT" };
-            var expectedOutput = "0,1,NORTH";
+            var expectedOutput = "Output: 0,1,NORTH";
             String output = null;
 
             foreach (var command in commands)
@@ -29,14 +29,14 @@ namespace ToyRobotTests
                 output = robotController.ExecuteCommand(command);
             }
 
-            Assert.Equal(output, expectedOutput);
+            Assert.Equal(expectedOutput, output);
         }
 
         [Fact]
         public void PuzzleTest2()
         {
             var commands = new String[] { "PLACE 0,0,NORTH", "LEFT", "REPORT" };
-            var expectedOutput = "0,0,WEST";
+            var expectedOutput = "Output: 0,0,WEST";
             String output = null;
 
             foreach (var command in commands)
@@ -44,14 +44,14 @@ namespace ToyRobotTests
                 output = robotController.ExecuteCommand(command);
             }
 
-            Assert.Equal(output, expectedOutput);
+            Assert.Equal(expectedOutput, output);
         }
 
         [Fact]
         public void PuzzleTest3()
         {
             var commands = new String[] { "PLACE 1,2,EAST", "MOVE", "MOVE", "LEFT", "MOVE", "REPORT" };
-            var expectedOutput = "3,3,NORTH";
+            var expectedOutput = "Output: 3,3,NORTH";
             String output = null;
 
             foreach (var command in commands)
@@ -59,7 +59,7 @@ namespace ToyRobotTests
                 output = robotController.ExecuteCommand(command);
             }
 
-            Assert.Equal(output, expectedOutput);
+            Assert.Equal(expectedOutput, output);
         }
     }
 }

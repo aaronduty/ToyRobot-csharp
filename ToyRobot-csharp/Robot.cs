@@ -11,40 +11,98 @@ namespace ToyRobot
             Place(table, x, y, f);
         }
 
-        public ITable Table { get; private set; }
+        private ITable Table { get; set; }
 
-        public int X { get; set; }
-        public int Y { get; set; }
-        public Heading F { get; set; }
+        private int X { get; set; }
+        private int Y { get; set; }
+        private Heading F { get; set; }
 
         public void Left()
         {
-            throw new NotImplementedException();
+            switch (F)
+            {
+                case Heading.NORTH:
+                    F = Heading.WEST;
+                    break;
+                case Heading.EAST:
+                    F = Heading.NORTH;
+                    break;
+                case Heading.SOUTH:
+                    F = Heading.EAST;
+                    break;
+                case Heading.WEST:
+                    F = Heading.SOUTH;
+                    break;
+            }
         }
 
         public void Move()
         {
-            throw new NotImplementedException();
+            switch (F)
+            {
+                case Heading.NORTH:
+                    if(Y + 1 < Table.YSize)
+                    {
+                        Y++;
+                    }
+                    break;
+                case Heading.EAST:
+                    var convertedXSize = -(Table.XSize + 1);
+                    if (X - 1 >= convertedXSize)
+                    {
+                        X--;
+                    }
+                    break;
+                case Heading.SOUTH:
+                    if (Y - 1 >= 0)
+                    {
+                        Y--;
+                    }
+                    break;
+                case Heading.WEST:
+                    if (X + 1 >= -1)
+                    {
+                        X++;
+                    }
+                    break;
+            }
         }
 
         public void Place(int x, int y, Heading f)
         {
-            throw new NotImplementedException();
+            X = -(x + 1);
+            Y = y;
+            F = f;
         }
 
         public void Place(ITable table, int x, int y, Heading f)
         {
-            throw new NotImplementedException();
+            this.Table = table;
+            Place(x, y, f);
         }
 
         public string Report()
         {
-            throw new NotImplementedException();
+            return String.Format("Output: {0},{1},{2}", (Math.Abs(X) - 1).ToString(), Y.ToString(), F.ToString());
         }
 
         public void Right()
         {
-            throw new NotImplementedException();
+            switch (F)
+            {
+                case Heading.NORTH:
+                    F = Heading.EAST;
+                    break;
+                case Heading.EAST:
+                    F = Heading.SOUTH;
+                    break;
+                case Heading.SOUTH:
+                    F = Heading.WEST;
+                    break;
+                case Heading.WEST:
+                    F = Heading.NORTH;
+                    break;
+            }
         }
     }
 }
