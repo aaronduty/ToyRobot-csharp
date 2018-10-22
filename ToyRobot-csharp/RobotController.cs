@@ -30,8 +30,15 @@ namespace ToyRobot
             switch (keyword.ToLower())
             {
                 case "place":
-                    Robot.Place(X, Y, Enum.Parse<Heading>(F));
-                    output = "Robot Placed";
+                    try
+                    {
+                        Robot.Place(X, Y, Enum.Parse<Heading>(F));
+                        output = "Robot Placed";
+                    }
+                    catch (RobotPlacementException ex)
+                    {
+                        output = ex.Message;
+                    }
                     break;
                 case "left":
                     Robot.Left();

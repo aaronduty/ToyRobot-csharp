@@ -61,5 +61,13 @@ namespace ToyRobotTests
 
             Assert.Equal(expectedOutput, output);
         }
+
+        [Fact]
+        public void PlacementTest1()
+        {
+            String expectedOutput = "Placement failed. X or Y are out of bounds for the supplied surface.";
+            String output = robotController.ExecuteCommand("PLACE 6,7,WEST");
+            Assert.Equal(expectedOutput, output);
+        }
     }
 }

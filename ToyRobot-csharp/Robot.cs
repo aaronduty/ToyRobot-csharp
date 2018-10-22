@@ -38,6 +38,11 @@ namespace ToyRobot
 
         public void Move()
         {
+            if (Table == null)
+            {
+                return;
+            }
+
             switch (F)
             {
                 case Heading.NORTH:
@@ -70,6 +75,10 @@ namespace ToyRobot
 
         public void Place(int x, int y, Heading f)
         {
+            if(Table == null || x < 0 || x >= Table.XSize || y < 0 || y >= Table.YSize)
+            {
+                throw new RobotPlacementException("Placement failed. X or Y are out of bounds for the supplied surface.");
+            }
             X = -(x + 1);
             Y = y;
             F = f;
