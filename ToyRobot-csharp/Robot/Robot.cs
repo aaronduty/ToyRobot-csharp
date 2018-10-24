@@ -92,7 +92,7 @@ namespace ToyRobot
 
         public string Report()
         {
-            return String.Format("Output: {0},{1},{2}", (Math.Abs(X) - 1).ToString(), Y.ToString(), F.ToString());
+            return String.Format("{0},{1},{2}", (Math.Abs(X) - 1).ToString(), Y.ToString(), F.ToString());
         }
 
         public void Right()
