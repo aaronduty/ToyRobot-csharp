@@ -6,7 +6,7 @@
         {
         }
 
-        public void execute()
+        public void Execute()
         {
             robot.Move();
             outputWriter.WriteLine("Robot moved.");

@@ -17,7 +17,7 @@ namespace ToyRobot.Commands
             this.f = f;
         }
 
-        public void execute()
+        public void Execute()
         {
             try
             {

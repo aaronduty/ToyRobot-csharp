@@ -6,7 +6,7 @@
         {
         }
 
-        public void execute()
+        public void Execute()
         {
             outputWriter.WriteLine("Robot at " + robot.Report());
         }

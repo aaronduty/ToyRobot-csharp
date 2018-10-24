@@ -6,7 +6,7 @@
         {
         }
 
-        public void execute()
+        public void Execute()
         {
             robot.Right();
             outputWriter.WriteLine("Robot turned right.");
