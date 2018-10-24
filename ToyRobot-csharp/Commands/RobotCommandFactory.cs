@@ -25,7 +25,7 @@ namespace ToyRobot.Commands
             String keyword = groups["command"].Value;
             int X = int.TryParse(groups["X"].Value, out X) ? X : 0;
             int Y = int.TryParse(groups["Y"].Value, out Y) ? Y : 0;
-            bool validHeading = Enum.TryParse<Heading>(groups["F"].Value, out Heading F);
+            bool validHeading = Enum.TryParse(groups["F"].Value, out Heading F);
 
             switch (keyword.ToLower())
             {
