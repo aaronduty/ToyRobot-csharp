@@ -32,13 +32,13 @@ namespace ToyRobot.Commands
                 case "place" when validHeading:
                     return new PlaceRobotCommand(robot, X, Y, F);
                 case "left":
-                    return new LeftRobotCommand();
+                    return new LeftRobotCommand(robot);
                 case "right":
-                    return new RightRobotCommand();
+                    return new RightRobotCommand(robot);
                 case "move":
-                    return new MoveRobotCommand();
+                    return new MoveRobotCommand(robot);
                 case "report":
-                    return new ReportRobotCommand();
+                    return new ReportRobotCommand(robot);
                 default:
                     return new UnknownRobotCommand();
             }
