@@ -1,6 +1,23 @@
-﻿namespace ToyRobot.Commands
+﻿using System;
+
+namespace ToyRobot.Commands
 {
-    internal class UnknownRobotCommand : IRobotCommand
+    internal class UnknownRobotCommand : AbstractRobotCommand, IRobotCommand
     {
+        private String message = "Command not understood. No action taken.";
+
+        public UnknownRobotCommand() : base(null)
+        {
+        }
+
+        public UnknownRobotCommand(String message) : base(null)
+        {
+            this.message = message;
+        }
+
+        public void execute()
+        {
+            outputWriter.WriteLine(message);
+        }
     }
 }
