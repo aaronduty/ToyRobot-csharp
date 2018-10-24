@@ -1,6 +1,15 @@
 ﻿namespace ToyRobot.Commands
 {
-    internal class MoveRobotCommand : IRobotCommand
+    internal class MoveRobotCommand : AbstractRobotCommand, IRobotCommand
     {
+        public MoveRobotCommand(IRobot robot) : base(robot)
+        {
+        }
+
+        public void execute()
+        {
+            robot.Move();
+            outputWriter.WriteLine("Robot turned left.");
+        }
     }
 }
