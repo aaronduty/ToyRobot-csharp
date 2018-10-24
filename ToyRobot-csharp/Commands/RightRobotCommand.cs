@@ -8,7 +8,7 @@
 
         public void execute()
         {
-            robot.Left();
+            robot.Right();
             outputWriter.WriteLine("Robot turned right.");
         }
     }
