@@ -6,7 +6,7 @@
         {
         }
 
-        public void execute()
+        public void Execute()
         {
             robot.Left();
             outputWriter.WriteLine("Robot turned left.");
