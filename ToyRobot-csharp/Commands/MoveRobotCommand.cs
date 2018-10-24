@@ -9,7 +9,7 @@
         public void execute()
         {
             robot.Move();
-            outputWriter.WriteLine("Robot turned left.");
+            outputWriter.WriteLine("Robot moved.");
         }
     }
 }
