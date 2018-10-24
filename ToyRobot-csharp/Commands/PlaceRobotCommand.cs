@@ -19,7 +19,17 @@ namespace ToyRobot.Commands
 
         public void execute()
         {
-            robot.Place(x, y, f);
+            try
+            {
+                robot.Place(x, y, f);
+                outputWriter.WriteLine("Robot placed: " + robot.Report());
+
+            }
+            catch(RobotPlacementException ex)
+            {
+                outputWriter.WriteLine(ex.Message);
+            }
+
         }
     }
 }
