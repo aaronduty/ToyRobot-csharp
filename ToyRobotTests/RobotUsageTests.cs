@@ -21,7 +21,7 @@ namespace ToyRobotTests
         public void PuzzleTest1()
         {
             var commands = new String[] { "PLACE 0,0,NORTH", "MOVE", "REPORT" };
-            var expectedOutput = "Output: 0,1,NORTH";
+            var expectedOutput = "Robot placed: 0,1,NORTH";
             String output = null;
 
             foreach (var command in commands)
@@ -36,7 +36,7 @@ namespace ToyRobotTests
         public void PuzzleTest2()
         {
             var commands = new String[] { "PLACE 0,0,NORTH", "LEFT", "REPORT" };
-            var expectedOutput = "Output: 0,0,WEST";
+            var expectedOutput = "Robot placed: 0,0,WEST";
             String output = null;
 
             foreach (var command in commands)
@@ -51,7 +51,7 @@ namespace ToyRobotTests
         public void PuzzleTest3()
         {
             var commands = new String[] { "PLACE 1,2,EAST", "MOVE", "MOVE", "LEFT", "MOVE", "REPORT" };
-            var expectedOutput = "Output: 3,3,NORTH";
+            var expectedOutput = "Robot placed: 3,3,NORTH";
             String output = null;
 
             foreach (var command in commands)
