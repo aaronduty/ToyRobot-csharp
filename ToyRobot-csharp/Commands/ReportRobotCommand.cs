@@ -1,4 +1,6 @@
-﻿namespace ToyRobot.Commands
+﻿using System;
+
+namespace ToyRobot.Commands
 {
     internal class ReportRobotCommand : AbstractRobotCommand, IRobotCommand
     {
@@ -6,9 +8,9 @@
         {
         }
 
-        public void Execute()
+        public String Execute()
         {
-            outputWriter.WriteLine("Robot at " + robot.Report());
+            return "Robot placed: " + robot.Report();
         }
     }
 }

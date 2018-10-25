@@ -1,4 +1,6 @@
-﻿namespace ToyRobot.Commands
+﻿using System;
+
+namespace ToyRobot.Commands
 {
     internal class MoveRobotCommand : AbstractRobotCommand, IRobotCommand
     {
@@ -6,10 +8,10 @@
         {
         }
 
-        public void Execute()
+        public String Execute()
         {
             robot.Move();
-            outputWriter.WriteLine("Robot moved.");
+            return "Robot moved.";
         }
     }
 }

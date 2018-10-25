@@ -17,17 +17,17 @@ namespace ToyRobot.Commands
             this.f = f;
         }
 
-        public void Execute()
+        public String Execute()
         {
             try
             {
                 robot.Place(x, y, f);
-                outputWriter.WriteLine("Robot placed: " + robot.Report());
+                return "Robot placed: " + robot.Report();
 
             }
             catch(RobotPlacementException ex)
             {
-                outputWriter.WriteLine(ex.Message);
+                return ex.Message;
             }
 
         }
