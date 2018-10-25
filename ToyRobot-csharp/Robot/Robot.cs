@@ -53,7 +53,7 @@ namespace ToyRobot
                     break;
                 case Heading.EAST:
                     var convertedXSize = -(Table.XSize + 1);
-                    if (X - 1 >= convertedXSize)
+                    if (X - 1 > convertedXSize)
                     {
                         X--;
                     }
