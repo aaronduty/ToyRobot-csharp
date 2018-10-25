@@ -6,6 +6,6 @@ namespace ToyRobot.Commands
 {
     public interface IRobotCommand
     {
-        void Execute();
+        String Execute();
     }
 }

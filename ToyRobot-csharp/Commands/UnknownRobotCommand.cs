@@ -15,9 +15,9 @@ namespace ToyRobot.Commands
             this.message = message;
         }
 
-        public void Execute()
+        public String Execute()
         {
-            outputWriter.WriteLine(message);
+            return message;
         }
     }
 }

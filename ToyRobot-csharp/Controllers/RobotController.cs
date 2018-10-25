@@ -20,10 +20,10 @@ namespace ToyRobot
             commandFactory = new RobotCommandFactory(robot);
         }
 
-        public void ExecuteCommand(String command)
+        public String ExecuteCommand(String command)
         {
             IRobotCommand robotCommand = commandFactory.GetCommand(command);
-            robotCommand.Execute();
+            return robotCommand.Execute();
         }
     }
 }
