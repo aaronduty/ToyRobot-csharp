@@ -4,7 +4,7 @@ using Xunit;
 
 namespace ToyRobotTests
 {
-    class TableTests
+    public class TableUnitTests
     {
     }
 }
