@@ -103,5 +103,33 @@ namespace ToyRobotTests
             //check
             Assert.Matches(reportPattern, robot.Report());
         }
+
+        [Theory]
+        [InlineData(Heading.NORTH)]
+        [InlineData(Heading.SOUTH)]
+        [InlineData(Heading.EAST)]
+        [InlineData(Heading.WEST)]
+        public void CannotGoOffSurface(Heading f)
+        {
+            //prep
+            var robot = new Robot(new Table(1, 1), 0, 0, f);
+            var expectedReport = robot.Report();
+
+            //test
+            robot.Move();
+
+            //check
+            Assert.Equal(expectedReport, robot.Report());
+        }
+
+        [Fact]
+        public void CannotBePlacedOffSurface()
+        {
+            //prep
+            var robot = new Robot(table, 0, 0, Heading.EAST);
+
+            //test and check
+            Assert.Throws<RobotPlacementException>(() => robot.Place(6, 6, Heading.NORTH));
+        }
     }
 }
