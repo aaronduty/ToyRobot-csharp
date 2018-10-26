@@ -65,7 +65,7 @@ namespace ToyRobot
                     }
                     break;
                 case Heading.WEST:
-                    if (X + 1 >= -1)
+                    if (X + 1 <= -1)
                     {
                         X++;
                     }
