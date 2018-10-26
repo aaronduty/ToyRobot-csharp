@@ -11,6 +11,11 @@ namespace ToyRobot
 
         public Table(int xSize, int ySize)
         {
+            if(xSize < 1 || ySize < 1)
+            {
+                throw new NegativeOrZeroDimensionException();
+            }
+            
             XSize = xSize;
             YSize = ySize;
         }
